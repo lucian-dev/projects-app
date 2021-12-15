@@ -37,8 +37,6 @@ const Create = () => {
   const [assignedUsers, setAssignedUsers] = useState([]);
   const [formError, setFormError] = useState(null);
 
-  console.log(assignedUsers);
-
   const { user } = useAuthContext();
 
   const { addDocument, response } = useFirestore("projects");
@@ -91,8 +89,6 @@ const Create = () => {
       createdBy,
       assignedUsersList,
     };
-
-    console.log(project);
 
     await addDocument(project);
 

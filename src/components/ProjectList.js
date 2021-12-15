@@ -9,7 +9,9 @@ const ProjectList = ({ projects }) => {
       {projects.map((project) => (
         <Link to={`/projects/${project.id}`} key={project.id}>
           <h4>{project.name}</h4>
+          <p className="created-by">By: {project.createdBy.displayName}</p>
           <p>Due by {project.dueDate.toDate().toDateString()}</p>
+          <span className="project-cat">{project.category}</span>
           <div className="assigned-to">
             <ul>
               {project.assignedUsersList.map((user) => (

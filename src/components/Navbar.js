@@ -1,14 +1,12 @@
-import "./Navbar.css";
-import Temple from "../assets/temple.svg";
-import { Link } from "react-router-dom";
-import { useLogout } from "../hooks/useLogout";
-import { useAuthContext } from "../hooks/useAuthContext";
+import { Link } from 'react-router-dom';
+import { useLogout } from '../hooks/useLogout';
+import { useAuthContext } from '../hooks/useAuthContext';
+import Temple from '../assets/temple.svg';
+import './Navbar.css';
 
 const Navbar = () => {
   const { logout, isLoading } = useLogout();
   const { user } = useAuthContext();
-
-  console.log(user);
 
   return (
     <div className="navbar">

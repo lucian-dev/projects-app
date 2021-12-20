@@ -1,10 +1,9 @@
-import "./Sidebar.css";
-import DashboardIcon from "../assets/dashboard_icon.svg";
-import AddIcon from "../assets/add_icon.svg";
-
-import { NavLink } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
-import Avatar from "./Avatar";
+import { NavLink } from 'react-router-dom';
+import { useAuthContext } from '../hooks/useAuthContext';
+import DashboardIcon from '../assets/dashboard_icon.svg';
+import AddIcon from '../assets/add_icon.svg';
+import Avatar from './Avatar';
+import './Sidebar.css';
 
 const Sidebar = () => {
   const { user } = useAuthContext();

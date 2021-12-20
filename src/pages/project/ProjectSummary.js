@@ -1,16 +1,16 @@
-import Avatar from "../../components/Avatar";
-import { useFirestore } from "../../hooks/useFirestore";
-import { useAuthContext } from "../../hooks/useAuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import Avatar from '../../components/Avatar';
+import { useFirestore } from '../../hooks/useFirestore';
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 const ProjectSummary = ({ project }) => {
-  const { deleteDocument } = useFirestore("projects");
+  const { deleteDocument } = useFirestore('projects');
   const { user } = useAuthContext();
   const history = useNavigate();
 
   const handleClick = (e) => {
     deleteDocument(project.id);
-    history("/");
+    history('/');
   };
 
   return (
@@ -18,9 +18,7 @@ const ProjectSummary = ({ project }) => {
       <div className="project-summary">
         <h2 className="page-title">{project.name}</h2>
         <p className="created-by">By: {project.createdBy.displayName}</p>
-        <p className="due-date">
-          Project due by: {project.dueDate.toDate().toDateString()}
-        </p>
+        <p className="due-date">Project due by: {project.dueDate.toDate().toDateString()}</p>
         <p className="details">{project.details}</p>
         <h4>Project is assigned to: </h4>
         <div className="assigned-users">

@@ -1,6 +1,6 @@
-import "./ProjectList.css";
-import { Link } from "react-router-dom";
-import Avatar from "./Avatar";
+import { Link } from 'react-router-dom';
+import Avatar from './Avatar';
+import './ProjectList.css';
 
 const ProjectList = ({ projects }) => {
   return (

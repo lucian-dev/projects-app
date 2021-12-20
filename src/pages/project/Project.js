@@ -1,13 +1,12 @@
-import "./Project.css";
-
-import { useParams } from "react-router-dom";
-import { useDocument } from "../../hooks/useDocument";
-import ProjectSummary from "./ProjectSummary";
-import ProjectComments from "./ProjectComments";
+import { useParams } from 'react-router-dom';
+import { useDocument } from '../../hooks/useDocument';
+import ProjectSummary from './ProjectSummary';
+import ProjectComments from './ProjectComments';
+import './Project.css';
 
 const Project = () => {
   const { id } = useParams();
-  const { document, error } = useDocument("projects", id);
+  const { document, error } = useDocument('projects', id);
 
   if (error) {
     return <div className="error">{error}</div>;

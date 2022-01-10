@@ -1,10 +1,6 @@
-import { useState, useEffect } from "react";
-import {
-  projectAuth,
-  projectStorage,
-  projectFirestore,
-} from "../firebase/config";
-import { useAuthContext } from "./useAuthContext";
+import { useState, useEffect } from 'react';
+import { projectAuth, projectStorage, projectFirestore } from '../firebase/config';
+import { useAuthContext } from './useAuthContext';
 
 export const useSignup = () => {
   const [isCancelled, setIsCancelled] = useState(false);
@@ -17,12 +13,9 @@ export const useSignup = () => {
     setIsLoading(true);
 
     try {
-      const res = await projectAuth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
+      const res = await projectAuth.createUserWithEmailAndPassword(email, password);
       if (!res) {
-        throw new Error("Could not complete signup");
+        throw new Error('Could not complete signup');
       }
 
       // upload user thumbnail
@@ -34,14 +27,14 @@ export const useSignup = () => {
       await res.user.updateProfile({ displayName, photoURL: imgUrl });
 
       // create user document
-      await projectFirestore.collection("users").doc(res.user.uid).set({
+      await projectFirestore.collection('users').doc(res.user.uid).set({
         online: true,
         displayName,
         photoUrl: imgUrl,
       });
 
       // dispatch login action
-      dispatch({ type: "LOGIN", payload: res.user });
+      dispatch({ type: 'LOGIN', payload: res.user });
 
       if (!isCancelled) {
         setIsLoading(false);

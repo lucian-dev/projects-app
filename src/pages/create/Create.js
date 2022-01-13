@@ -77,7 +77,6 @@ const Create = () => {
         displayName: u.value.displayName,
         photoURL: u.value.photoUrl,
         id: u.value.id,
-        noti: 'You have been assigned!',
       };
     });
 
@@ -91,7 +90,6 @@ const Create = () => {
       assignedUsersList,
     };
 
-    console.log(project);
     await addDocument(project);
 
     if (!response.error) {

@@ -1,15 +1,15 @@
-import { useState } from "react";
-import Avatar from "../../components/Avatar";
-import { timestamp } from "../../firebase/config";
-import { useAuthContext } from "../../hooks/useAuthContext";
-import { useFirestore } from "../../hooks/useFirestore";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { useState } from 'react';
+import Avatar from '../../components/Avatar';
+import { timestamp } from '../../firebase/config';
+import { useAuthContext } from '../../hooks/useAuthContext';
+import { useFirestore } from '../../hooks/useFirestore';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const ProjectComments = ({ project }) => {
-  const [newComment, setNewComment] = useState("");
+  const [newComment, setNewComment] = useState('');
   const { user } = useAuthContext();
 
-  const { updateDocument, response } = useFirestore("projects");
+  const { updateDocument, response } = useFirestore('projects');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ const ProjectComments = ({ project }) => {
       comments: [...project.comments, commentToAdd],
     });
     if (!response.error) {
-      setNewComment("");
+      setNewComment('');
     }
   };
 
@@ -56,11 +56,7 @@ const ProjectComments = ({ project }) => {
       <form className="add-comment" onSubmit={handleSubmit}>
         <label>
           <span>Add new comment</span>
-          <textarea
-            onChange={(e) => setNewComment(e.target.value)}
-            value={newComment}
-            required
-          ></textarea>
+          <textarea onChange={(e) => setNewComment(e.target.value)} value={newComment} required></textarea>
         </label>
         <button className="btn">Add Comment</button>
       </form>
